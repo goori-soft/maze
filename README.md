@@ -42,7 +42,7 @@ Import the module:
 import * as maze from "@/maze";
 ```
 
-Solve a maze passing the maze file and options parameters:
+Solve a maze by passing the maze file and options parameters:
 
 ```ts
 const filePath = "./files";
