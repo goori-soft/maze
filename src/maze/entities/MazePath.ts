@@ -38,15 +38,18 @@ export class MazePath{
   }
 
   isClosed(): boolean {
+    const isMazeOnedimensional = this.maze.width() === 1 || this.maze.height() === 1
+    if(this.size() > 0 && isMazeOnedimensional) return true
     const lastSquare = this.getLastSquare()
     if(lastSquare === undefined) return false
+    if(this.size() <= 1) return false
     return this.maze.getExitChars().includes(lastSquare.getChar())
   }
 
   getPossibleSteps(): MazeSquare[]{
     if(this.mazeSquares.size === 0) return []
     const consecutiveSquares = this.getLastConsecutiveSquares(this.consecutivePathCharsRequired)
-    const lastSquare = consecutiveSquares[consecutiveSquares.length - 1]
+    const lastSquare = consecutiveSquares[consecutiveSquares.length - 1] ?? this.getLastSquare()
     const lastChar = lastSquare.getChar()
     const validChars = [lastChar, ...this.breakingChars]
     let possibleSquares = lastSquare.getNext(this.orthogonalOnly)
@@ -112,25 +115,6 @@ export class MazePath{
     })
 
     matrix.forEach( line => console.log(line.join(' ')))
-  }
-
-  hightlightBlocks(): void{
-    const points = this.getPoints()
-    const fullBlock = Buffer.from([0xE2, 0x96, 0x87]).toString('utf-8')
-    const hBorder = '-'
-    const vBorder = '|'
-    const freeSpace = ' '
-    const width = this.maze.width()
-    const height = this.maze.height()
-    const top = Array(width + 2).fill(hBorder)
-    const lines: string[][] = Array(height).fill([])
-    lines.forEach( (line, index) => {
-      lines[index] = [vBorder, ...Array(width).fill(fullBlock), vBorder ]
-    })
-    points.map( point => {
-      lines[point.y][point.x + 1] = freeSpace
-    })
-    lines.forEach( line => console.log(line.join('')))
   }
 
   private getLastConsecutiveSquares(consecutiveSquaresLimit: number): MazeSquare[]{

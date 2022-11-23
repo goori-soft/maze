@@ -49,10 +49,6 @@ describe("Maze entity", ()=>{
   })
 
   it('Should find a valid path', ()=>{
-    const options = {
-      entryChars: 'b',
-      exitChars: 'b'
-    }
     const mazeFile = './tests/maze-files/maze-example-1.txt'
     const maze = new Maze(mazeFile)
 
@@ -62,5 +58,16 @@ describe("Maze entity", ()=>{
     expect(mazePaths.length).toBe(1)
     expect(mazePaths[0]).toBeInstanceOf(MazePath)
     expect(mazePaths[0].size()).toBe(11)
+  })
+
+  it('Should find diferent paths for diferent configurations', ()=>{
+    const mazeFile = './tests/maze-files/maze-example-3.txt'
+    const maze = new Maze(mazeFile, {exitChars: 'F'})
+
+    const mazePaths1 = maze.findPaths({ consecutivePathCharsRequired: 3}) 
+    const mazePaths2 = maze.findPaths({ consecutivePathCharsRequired: 0})
+
+    expect(mazePaths1.length).toBe(1)
+    expect(mazePaths2.length).toBe(2)
   })
 })

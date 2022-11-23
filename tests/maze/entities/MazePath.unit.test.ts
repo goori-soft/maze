@@ -101,4 +101,28 @@ describe('Maze path entity', ()=>{
     expect(mazePath.isEqual(altMaze2)).toBe(true)
     expect(mazePath.isEqual(altMaze3)).toBe(false)
   })
+
+  it('Should not allow invalid point insertion', ()=>{
+    const mazeFile = './tests/maze-files/maze-example-2.txt'
+    const maze = new Maze(mazeFile)
+
+    const mazePath = new MazePath(maze)
+    expect(()=> mazePath.addPoint(10, 10)).toThrow()
+  })
+
+  it('Should identify a closed path', ()=>{
+    const mazeFile = './tests/maze-files/maze-example-2.txt'
+    const maze = new Maze(mazeFile)
+
+    const mazePath = new MazePath(maze)
+    mazePath.addPoint(6, 0)
+
+    expect(mazePath.isClosed()).toBe(false)
+    mazePath.addPoint(6, 1)
+    mazePath.addPoint(6, 2)
+    mazePath.addPoint(6, 3)
+    mazePath.addPoint(6, 4)
+    
+    expect(mazePath.isClosed()).toBe(true)
+  })
 })

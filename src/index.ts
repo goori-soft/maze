@@ -1,8 +1,6 @@
 import './config/module-alias'
 import * as maze from '@/maze'
 
-console.log(process.argv)
-
 function getMsTime(): number{
   const hrTime = process.hrtime()
   return hrTime[0] * 1000000 + hrTime[1] / 1000

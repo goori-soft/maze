@@ -23,5 +23,9 @@ console.log(`${mazePaths.length} solution(s) found for ${mazeFile}`)
 console.log(`${delay} s`)
 
 console.log('')
-mazePaths.map( mazePath => mazePath.hightlightChars())
+mazePaths.map( mazePath => {
+  console.log('')
+  mazePath.hightlightChars()
+  console.log('')
+})
 console.log('')

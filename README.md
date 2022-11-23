@@ -7,6 +7,8 @@ This is a simple application to solve a 2D text based maze.
 ```bash
 $ npm install
 $ npm run resolve ./tests/maze-files/maze-example-0.txt
+$ npm run resolve ./tests/maze-files/maze-example-1.txt
+$ npm run resolve ./tests/maze-files/maze-example-2.txt
 ```
 
 ## About the maze
