@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "target": "ES2018",
+    "paths": {
+      "@/*": ["*"],
+      "@/tests/*": ["tests/*"]
+    }
+  },
+  "include": ["./src", "tests"]
+}
