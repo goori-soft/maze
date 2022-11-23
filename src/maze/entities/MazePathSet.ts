@@ -19,4 +19,8 @@ export class MazePathSet{
   concat(mazePathArray: MazePath[]): void{
     mazePathArray.forEach( mazePath => this.add(mazePath))
   }
+
+  size(): number{
+    return this.mazePathSet.size
+  }
 }

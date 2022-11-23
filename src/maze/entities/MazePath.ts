@@ -13,7 +13,7 @@ export class MazePath{
 
   constructor(private readonly maze: Maze, private readonly options: MazePathOptions = {}){
     this.consecutivePathCharsRequired = options.consecutivePathCharsRequired ?? 3
-    this.orthogonalOnly = true //options.orthogonalOnly ?? true
+    this.orthogonalOnly = options.orthogonalOnly ?? true
     this.breakingChars = options.breakingChars?.toUpperCase().split('') ?? ['B']
     this.invalidPathChars = options.invalidPathChars?.toUpperCase().split('') ?? ['A']
   }

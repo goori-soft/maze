@@ -4,9 +4,11 @@
   "description": "Simple maze solver",
   "main": "src/index.js",
   "scripts": {
+    "resolve": "ts-node ./src/resolve",
     "start": "ts-node ./src/index",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",

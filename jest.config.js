@@ -3,7 +3,7 @@ const { name } = require('./package.json')
 module.exports = {
   displayName: name,
   collectCoverageFrom: [
-    '<rootDir>/src/**/*.ts',
+    '<rootDir>/src/maze/**/*.ts',
     '!<rootDir>/src/**/index.ts',
     '!<rootDir>/tests/**',
   ],
@@ -14,10 +14,10 @@ module.exports = {
   },
   coverageThreshold: {
     global: {
-      branches: 100,
-      functions: 100,
-      lines: 100,
-      statements: 100
+      branches: 75,
+      functions: 75,
+      lines: 75,
+      statements: 75
     }
   },
   roots: [
