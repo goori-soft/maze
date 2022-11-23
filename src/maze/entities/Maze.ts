@@ -5,9 +5,7 @@ import { MazePath } from './MazePath';
 import { MazePathSet } from './MazePathSet';
 
 export class Maze{
-  private readonly mazeSquares: Set<MazeSquare> = new Set()
   private readonly mazeLines: MazeSquare[][] = []
-  private readonly mazeColumns: MazeSquare[][] = []
   private readonly matrix: string[][] = []
   private maxWidth: number = -1
   private readonly entryChars: string[]
@@ -139,9 +137,6 @@ export class Maze{
         
         if (this.mazeLines[lineIndex] === undefined) this.mazeLines[lineIndex] = [] 
         this.mazeLines[lineIndex][columnIndex] = mazeSquare
-        
-        if(this.mazeColumns[columnIndex] === undefined) this.mazeColumns[columnIndex] = []
-        this.mazeColumns[columnIndex][lineIndex] = mazeSquare
 
         if(this.matrix[lineIndex] === undefined) this.matrix[lineIndex] = []
         this.matrix[lineIndex][columnIndex] = char.toUpperCase()
